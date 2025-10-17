@@ -1,250 +1,76 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Our Story</title>
-
-    <link type="text/css" rel="stylesheet" href="./index_files/default.css">
-    <script type="text/javascript" src="./index_files/jquery.min.js"></script>
-    <script type="text/javascript" src="./index_files/jscex.min.js"></script>
-    <script type="text/javascript" src="./index_files/jscex-parser.js"></script>
-    <script type="text/javascript" src="./index_files/jscex-jit.js"></script>
-    <script type="text/javascript" src="./index_files/jscex-builderbase.min.js"></script>
-    <script type="text/javascript" src="./index_files/jscex-async.min.js"></script>
-    <script type="text/javascript" src="./index_files/jscex-async-powerpack.min.js"></script>
-    <script type="text/javascript" src="./index_files/functions.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./index_files/love.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./config.js"></script>
-    <style type="text/css">
-        <!--
-        .STYLE1 {
-            color: #666666
-        }
-
-        -->
-    </style>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>给你的一封信</title>	    
+        <link type="text/css" rel="stylesheet" href="./file/default.css">
+		<script type="text/javascript" src="./file/jquery.min.js"></script>
+		<script type="text/javascript" src="./file/jscex.min.js"></script>
+		<script type="text/javascript" src="./file/jscex-parser.js"></script>
+		<script type="text/javascript" src="./file/jscex-jit.js"></script>
+		<script type="text/javascript" src="./file/jscex-builderbase.min.js"></script>
+		<script type="text/javascript" src="./file/jscex-async.min.js"></script>
+		<script type="text/javascript" src="./file/jscex-async-powerpack.min.js"></script>
+		<script type="text/javascript" src="./file/functions.js" charset="utf-8"></script>
+		<script type="text/javascript" src="./file/love.js" charset="utf-8"></script>
+	    <style type="text/css">
+        </style>
 </head>
-<body>
-
-<img src="https://ajlovechina.github.io/loveBalloon/static/music.png" style="position: fixed;z-index: 10001;top:10px;right:10px;" onclick="let m = document.querySelector('.song-audio-autoplay'); if (m.paused ) {m.play(); this.className = 'rotateImages'} else {m.pause(); this.className = ''}">
-<audio class="song-audio-autoplay" controls loop autoplay style="display: none;visibility: hidden">
-    <source src="./index_files/music.mp3" type="audio/mp3"/>
-</audio>
-<style type="text/css">
-    .rotateImages{
-        -webkit-animation:myRotate 10s linear infinite;
-        animation:myRotate 10s linear infinite;
-    }
-    @-webkit-keyframes myRotate{
-        0%{ -webkit-transform: rotate(0deg);}
-        50%{ -webkit-transform: rotate(180deg);}
-        100%{ -webkit-transform: rotate(360deg);}
-    }
-    @keyframes myRotate{
-        0%{ -webkit-transform: rotate(0deg);}
-        50%{ -webkit-transform: rotate(180deg);}
-        100%{ -webkit-transform: rotate(360deg);}
-    }
-
-    /* 响应式设计 - 移动端适配 */
-    @media screen and (max-width: 768px) {
-        body {
-            font-size: 12px;
-        }
-        
-        #wrap {
-            width: 100vw;
-            height: 100vh;
-            margin-top: 0;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-        
-        #text {
-            width: 90%;
-            height: auto;
-            left: 5%;
-            top: 10px;
-            position: absolute;
-            z-index: 100;
-        }
-        
-        #code {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        #clock-box {
-            left: 5%;
-            top: auto;
-            bottom: 120px;
-            font-size: 18px;
-            width: 90%;
-            text-align: center;
-        }
-        
-        #clock {
-            margin-left: 0;
-            text-align: center;
-        }
-        
-        #clock .digit {
-            font-size: 36px;
-        }
-        
-        #canvas {
-            width: 100vw;
-            height: 60vh;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-        }
-        
-        /* 音乐控制按钮在移动端的调整 */
-        img[onclick] {
-            top: 5px !important;
-            right: 5px !important;
-            width: 40px;
-            height: 40px;
-        }
-        
-        .say {
-            margin-left: 2px;
-            display: block;
-            margin-bottom: 5px;
-        }
-    }
-    
-    /* 平板适配 */
-    @media screen and (min-width: 769px) and (max-width: 1024px) {
-        #wrap {
-            width: 95%;
-            height: 600px;
-        }
-        
-        #canvas {
-            width: 95%;
-            height: 600px;
-        }
-        
-        #text {
-            width: 350px;
-            left: 30px;
-        }
-        
-        #clock-box {
-            left: 30px;
-            font-size: 24px;
-        }
-    }
-    
-    /* 超小屏幕适配 */
-    @media screen and (max-width: 480px) {
-        #text {
-            top: 5px;
-            height: auto;
-            max-height: 30vh;
-            overflow-y: auto;
-        }
-        
-        #code {
-            font-size: 12px;
-        }
-        
-        #clock-box {
-            bottom: 80px;
-            font-size: 16px;
-        }
-        
-        #clock .digit {
-            font-size: 28px;
-        }
-        
-        #canvas {
-            height: 50vh;
-        }
-        
-        img[onclick] {
-            width: 35px;
-            height: 35px;
-        }
-    }
-</style>
-
-<div id="main">
-    <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a
-            href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
-            href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。
-    </div>
-    <div id="wrap">
-        <div id="text">
-            <div id="code">
+    <body>
+        <div id="main">
+            <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。</div>
+            <audio autoplay="autoplay" height="100" width="100">
+                    <source src="renxi.mp3" type="audio/mp3" />
+                    <embed height="100" width="100" src="renxi.mp3" />
+            </audio>
+            <div id="wrap">
+                <div id="text">
+                    <div id="code"> <font color="#FF0000"> <span class="say">亲爱的宝宝，我爱你</span><br>
+                      <span class="say"> 我知道我不会甜言蜜语，</span><br>
+                      <span class="say"> 但是我会用行动证明一切</span><br>
+                      <span class="say">你说我啰嗦，</span><br>             
+                          <span class="say"> 有些东西因为越在乎所以越怕失去</span><br>
+                      <span class="say">因为我太爱你了，所以我害怕失去你</span><br>
+                      <span class="say">因为我太爱你了，所以我对你总啰嗦</span><br>
+                      <span class="say">希望可以执子之手，与子偕老</span><br>
+                      <span class="say">如果上天让我许三个愿望，</span><br>
+                              <span class="say">第一个是今生今世和你在一起， </span><br>
+                           <span class="say"> 第二个是再生再世和你在一起，</span><br>
+                           <span class="say">第三个是永生永世和你不分离 </span><br>
+                      <span class="say"><span class="space"></span> -- 爱你的老公</span> </font>
+                          <br />
+                          <br />
+                      </p>
+                    </div>
+                  </div>
+                <div id="clock-box">
+                    <span class="STYLE1"></span><font color="#33CC00">亲爱的，我喜欢你</font>
+<span class="STYLE1">已经是……</span>
+                  <div id="clock"></div>
+              </div>
+                <canvas id="canvas" width="1100" height="680"></canvas>
             </div>
+            
         </div>
-        <div id="clock-box">
-                    <span id="clock-box-inside-text">
-					</span>
-            <div id="clock"></div>
-        </div>
-        <canvas id="canvas" width="1100" height="680"></canvas>
-    </div>
+    
+    <script>
+    </script>
 
-</div>
-
-<script type="text/javascript">
-    $('#code').html(config.lines.map(item => {
-        return `<span class="say">${item}</span><br>
-						<span class="say"> </span><br>`
-    }).reduce((a, b) => {
-        return a + b;
-    }))
-    $("#clock-box-inside-text").html(`${config.names[0]}<span class="STYLE1">与</span> ${config.names[1]}<span class="STYLE1">已经相恋了</span>`)
-</script>
-
-<script>
-    (function () {
+    <script>
+    (function(){
         var canvas = $('#canvas');
-
+		
         if (!canvas[0].getContext) {
             $("#error").show();
-            return false;
-        }
+            return false;        }
 
-        // 响应式Canvas尺寸调整
-        var isMobile = window.innerWidth <= 768;
-        var isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
-        
-        var width, height;
-        if (isMobile) {
-            width = window.innerWidth;
-            height = window.innerHeight * 0.6; // 移动端使用60%的视口高度
-        } else if (isTablet) {
-            width = window.innerWidth * 0.95;
-            height = 600;
-        } else {
-            width = canvas.width() || 1100;
-            height = canvas.height() || 680;
-        }
-
+        var width = canvas.width();
+        var height = canvas.height();        
         canvas.attr("width", width);
         canvas.attr("height", height);
-        
-        // 移动端需要调整Canvas的CSS尺寸
-        if (isMobile) {
-            canvas.css({
-                'width': width + 'px',
-                'height': height + 'px'
-            });
-        }
-
         var opts = {
             seed: {
                 x: width / 2 - 20,
                 color: "rgb(190, 26, 37)",
-                scale: isMobile ? 1.5 : 2  // 移动端缩小种子尺寸
+                scale: 2
             },
             branch: [
                 [535, 680, 570, 250, 500, 200, 30, 100, [
@@ -262,46 +88,18 @@
                     [546, 357, 608, 252, 678, 221, 6, 100, [
                         [590, 293, 646, 277, 648, 271, 2, 80]
                     ]]
-                ]]
-            ].map(function(branch) {
-                // 按比例调整树枝坐标
-                var scale = Math.min(width / 1100, height / 680);
-                return scaleBranch(branch, scale, width / 2, height / 2);
-            }),
+                ]] 
+            ],
             bloom: {
-                num: isMobile ? 300 : 700,  // 移动端减少花朵数量以提高性能
-                width: width,
-                height: height,
+                num: 700,
+                width: 1080,
+                height: 650,
             },
             footer: {
-                width: width,
+                width: 1200,
                 height: 5,
                 speed: 10,
             }
-        }
-        
-        // 树枝坐标缩放函数
-        function scaleBranch(branch, scale, centerX, centerY) {
-            var newBranch = [];
-            for (var i = 0; i < branch.length; i++) {
-                if (typeof branch[i] === 'number') {
-                    if (i % 2 === 0) {
-                        // x坐标
-                        newBranch[i] = (branch[i] - 550) * scale + centerX;
-                    } else {
-                        // y坐标
-                        newBranch[i] = (branch[i] - 400) * scale + centerY;
-                    }
-                } else if (Array.isArray(branch[i])) {
-                    // 递归处理子分支
-                    newBranch[i] = branch[i].map(function(subBranch) {
-                        return scaleBranch(subBranch, scale, centerX, centerY);
-                    });
-                } else {
-                    newBranch[i] = branch[i];
-                }
-            }
-            return newBranch;
         }
 
         var tree = new Tree(canvas[0], width, height, opts);
@@ -309,17 +107,17 @@
         var foot = tree.footer;
         var hold = 1;
 
-        canvas.click(function (e) {
+        canvas.click(function(e) {
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
             if (seed.hover(x, y)) {
-                hold = 0;
+                hold = 0; 
                 canvas.unbind("click");
                 canvas.unbind("mousemove");
                 canvas.removeClass('hand');
             }
-        }).mousemove(function (e) {
+        }).mousemove(function(e){
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
@@ -344,14 +142,14 @@
 
         var growAnimate = eval(Jscex.compile("async", function () {
             do {
-                tree.grow();
+    	        tree.grow();
                 $await(Jscex.Async.sleep(10));
             } while (tree.canGrow());
         }));
 
         var flowAnimate = eval(Jscex.compile("async", function () {
             do {
-                tree.flower(2);
+    	        tree.flower(2);
                 $await(Jscex.Async.sleep(10));
             } while (tree.canFlower());
         }));
@@ -383,9 +181,14 @@
         }));
 
         var textAnimate = eval(Jscex.compile("async", function () {
-            var together = new Date(config.date);
+		    var together = new Date();
+		    together.setFullYear(2010,1 , 15); 			//时间年月日
+		    together.setHours(16);						//小时	
+		    together.setMinutes(53);					//分钟
+		    together.setSeconds(0);					//秒前一位
+		    together.setMilliseconds(2);				//秒第二位
 
-            $("#code").show().typewriter();
+		    $("#code").show().typewriter();
             $("#clock-box").fadeIn(500);
             while (true) {
                 timeElapse(together);
@@ -406,58 +209,4 @@
 
         runAsync().start();
     })();
-</script>
-
-<script type="text/javascript">
-// 尝试自动播放音乐
-window.addEventListener('load', function() {
-    var audio = document.querySelector('.song-audio-autoplay');
-    var playPromise = audio.play();
-    
-    if (playPromise !== undefined) {
-        playPromise.then(function() {
-            // 自动播放成功
-            console.log('音乐自动播放成功');
-        }).catch(function(error) {
-            // 自动播放被阻止，通常需要用户交互
-            console.log('音乐自动播放被阻止，需要用户点击页面后才能播放');
-            
-            // 添加点击事件监听器，用户点击页面后播放音乐
-            var playOnClick = function() {
-                audio.play();
-                document.removeEventListener('click', playOnClick);
-            };
-            document.addEventListener('click', playOnClick);
-        });
-    }
-});
-
-// 窗口大小改变时的响应处理
-window.addEventListener('resize', function() {
-    // 防抖处理，避免频繁触发
-    clearTimeout(window.resizeTimer);
-    window.resizeTimer = setTimeout(function() {
-        location.reload(); // 简单重新加载页面以重新适配
-    }, 500);
-});
-
-// 移动端触摸事件优化
-if (window.innerWidth <= 768) {
-    // 防止移动端双击缩放
-    var lastTouchEnd = 0;
-    document.addEventListener('touchend', function (event) {
-        var now = (new Date()).getTime();
-        if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-        }
-        lastTouchEnd = now;
-    }, false);
-    
-    // 添加触摸友好的样式
-    document.body.style.webkitUserSelect = 'none';
-    document.body.style.webkitTouchCallout = 'none';
-}
-</script>
-
-</body>
-</html>
+    </script></body></html>
